@@ -1,0 +1,39 @@
+{{!-- layouts/base.hbs --}}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <title>
+        Content SandBox
+    </title>
+
+    {{#> head-block}}
+      {{> head }}
+    {{/head-block}}
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">
+            Content SandBox
+          </a>
+        </div>
+
+        {{#if user}}
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <a href="/logout">Log Out</a>
+            </li>
+          </ul>
+        {{/if}}
+      </div>
+    </nav>
+
+    {{#> content-block}}
+    {{!-- Content goes here --}}
+    {{/content-block}}
+
+  </body>
+</html>
