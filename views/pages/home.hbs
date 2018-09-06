@@ -5,11 +5,10 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col col-md-2"></div>
+		<div class="col col-md-2 mts"><a class="btn btn-danger" href="/reset-content">Reset Content</a></div>
 		<div class="col col-md-8 mtm">
-			<h4>App Service Account</h4>
-			<div style="border-style: dashed; border-color: #F96079">
-				<p>Actions:</p>
+			<h4>Application Service Account</h4>
+			<div style="border-style: dashed; border-color: #F1F1F1; padding: 10px">
 				<form class="form-inline" action="/create-collaboration" method="post">
 					<div class="form-group">
 						<select name="userId" class="form-control form-control-sm">
@@ -18,9 +17,11 @@
 							{{/each}}
 						</select>
 						<input type="hidden" name="folderId" id="folderId">
-						<input type="text" id="targetFolder" name="targetFolder" class="form-control form-control-sm" id="targetFolder" placeholder="select folder below" disabled>
+						<input type="text" id="targetFolder" name="targetFolder" class="form-control form-control-sm mls" id="targetFolder" placeholder="select folder below" disabled>
+						<input type="checkbox" class="form-check-input form-control mls" name="canViewPath" id="canViewPath">
+						<label class="form-check-label" for="canViewPath">can_view_path</label>
 					</div>
-					<button id="collabButton" type="submit" class="btn btn-primary btn-sm" disabled>Send Invite</button>
+					<button id="collabButton" type="submit" class="btn btn-primary btn-sm mls" disabled>Send Collaboration Invite</button>
 				</form>
 
 				<!-- Box Content Explorer -->
@@ -31,11 +32,11 @@
 		</div>
 
 	</div>
-	<div class="row mtm">
+	<div class="row mtm mbl">
 		<div class="col col-md-5">
 			<h4>User A</h4>
 			<!-- Box Content Explorer -->
-			<div class="tab-pane show active mts" style="border-style: dotted; border-color: #0F64D2" role="tabpanel" id="explorer">
+			<div class="tab-pane show active mts" style="border-style: dotted; border-color: #9EB7DC; padding: 10px" role="tabpanel" id="explorer">
 				<div style="height:400px" class="explorer-a"></div>
 			</div>
 		</div>
@@ -44,7 +45,7 @@
 		<div class="col col-md-5">
 			<h4>User B</h4>
 			<!-- Box Content Explorer -->
-			<div class="tab-pane show active mts" style="border-style: dotted; border-color: #0F64D2" role="tabpanel" id="explorer">
+			<div class="tab-pane show active mts" style="border-style: dotted; border-color: #9EB7DC; padding: 10px" role="tabpanel" id="explorer">
 				<div style="height:400px" class="explorer-b"></div>
 			</div>
 		</div>
@@ -53,10 +54,10 @@
 </div>
 
 <script>
-  var folderId = '0';
-  var explorerA = new Box.ContentExplorer();
-	var explorerB = new Box.ContentExplorer();
-	var explorerSA = new Box.ContentExplorer();
+  const folderId = '0';
+  const explorerA = new Box.ContentExplorer();
+	const explorerB = new Box.ContentExplorer();
+	const explorerSA = new Box.ContentExplorer();
 
 
   explorerA.show(folderId, '{{tokenA}}', {
