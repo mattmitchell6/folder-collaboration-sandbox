@@ -13,7 +13,7 @@
 					<div class="form-group">
 						<select name="userId" class="form-control form-control-sm">
 							{{#each users}}
-									<option value={{this.id}}>{{this.name}}</option>
+									<option id="{{this.name}}" class="editable" value={{this.id}}>{{this.name}}</option>
 							{{/each}}
 						</select>
 						<input type="hidden" name="folderId" id="folderId">
@@ -34,7 +34,7 @@
 	</div>
 	<div class="row mtm mbl">
 		<div class="col col-md-5">
-			<h4>User A</h4>
+			<h4 id="User A" class="editable">User A</h4>
 			<!-- Box Content Explorer -->
 			<div class="tab-pane show active mts" style="border-style: dotted; border-color: #9EB7DC; padding: 10px" role="tabpanel" id="explorer">
 				<div style="height:400px" class="explorer-a"></div>
@@ -43,7 +43,7 @@
 		<div class="col col-md-2"></div>
 
 		<div class="col col-md-5">
-			<h4>User B</h4>
+			<h4 id="User B" class="editable">User B</h4>
 			<!-- Box Content Explorer -->
 			<div class="tab-pane show active mts" style="border-style: dotted; border-color: #9EB7DC; padding: 10px" role="tabpanel" id="explorer">
 				<div style="height:400px" class="explorer-b"></div>
